@@ -1,0 +1,90 @@
+body{
+  font-family: "verdana",courier,sans-serif;
+}
+.container{
+  background-color: white;
+width: 300px;
+height: 300px;
+border-radius: 150px;
+position: absolute;
+overflow: hidden;
+border: 1px solid #2c2cbf;
+left:200px;
+}
+#right-div{
+  position: relative;
+float: right;
+width: 150px;
+height: 300px;
+background-color: #4c4cc0;
+transform-origin: left;
+/*transform: rotate(0deg);*/
+}
+#left-div{
+  position: relative;
+float: right;
+width: 150px;
+height: 300px;
+background-color: #4c4cc0;
+/*transform: rotate(0deg);*/
+transform-origin: right;
+}
+#center-div{
+  background-color: white;
+width: 240px;
+height: 240px;
+position: relative;
+top: 30px;
+left: 30px;
+border-radius: 120px;
+border: 1px solid #2c2cbf;
+}
+[ng-cloak]{
+  display: none !important;
+}
+ul{
+  background-color: black;
+  color:white;
+  line-height: 3;
+}
+li{
+  display:inline;
+  cursor: pointer;
+  text-decoration: none;
+  padding:11px;
+}
+.active{
+  background-color: white;
+  color:black;
+}
+li:hover:not(.active){
+  /*background-color: black;*/
+  color:blue;
+}
+.label-div{
+  width:200px; 
+  text-align:right; 
+  display:inline-block; 
+  line-height:3;
+}
+.input-div{
+  display:inline-block; 
+  line-height:3
+}
+.percent{
+  position: relative;
+  top: -240px;
+  left: 53px;
+  font-size: 57px;
+}
+.report-div{
+  padding: 20px;
+  line-height: 2
+}
+.name{
+  text-transform: capitalize;
+}
+.note{
+  margin: 20px 0 0 190px;
+  color: #ce3b3b;
+}

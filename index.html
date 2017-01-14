@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Donut</title>
+	  <link rel="stylesheet" type="text/css" href="index.css">
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+	  <script>
+		$( function() {
+		    $( "#startDatePicker" ).datepicker();
+		    $( "#endDatePicker" ).datepicker();
+		});
+	  </script>
+</head>
+<body ng-app="App" ng-controller="MainController" class="date-picker">
+	<ul>
+		<li ng-click="reportsView ? reportsView=false : ''" ng-class="reportsView ? '' : 'active'">Home</li>
+		<li ng-click="reportsView ? '' : reportCheck()" ng-class="reportsView ? 'active' : ''">Report</li>
+	</ul>
+	<div ng-hide="reportsView">
+		<div class="label-div">
+			<label for="userName">Name : </label>
+			<br>
+			<label for="value">Value : </label>
+			<br>
+			<label for="startDate">Start Date : </label>
+			<br>
+			<label for="endDate">End Date : </label>
+		</div>
+		<div class="input-div">
+			<input type="text" name="userName" ng-model="userName" ng-required>
+			<br>
+			
+			<input type="number" name="value" min="1" max="100" ng-model="uservalue">
+			<br>
+			
+			<input type="text" id="startDatePicker" name="startDate" ng-model="date.start" ng-change="checkMin()">
+			<br>
+			
+			<input type="text" id="endDatePicker" name="endDate" ng-model="date.end" ng-change="checkMax()">
+			<br>
+		</div>
+		<br>
+		<div class="note"><sup>*</sup>All the fields are required</div>
+	</div>
+	<div ng-cloak ng-show="reportsView" class="report-div">
+		<div class="note" ng-if="!(userName && uservalue && date.start && date.end)">Please fill all the fields in the Home tab</div>
+		<div ng-if="userName && uservalue && date.start && date.end">
+			<h3>Plan Details</h3>
+			<div class="name">Name : <span ng-bind="userName"></span></div>
+			<div>Start Date : <span ng-bind="date.start"></span></div>
+			<div>End Date : <span ng-bind="date.end"></span></div>
+			<div>Value : </div>
+			<div class="container">
+				<div id="right-div">&nbsp</div>
+				<div id="left-div">&nbsp</div>
+				<div id="center-div"><span class="percent">{{uservalue}}%</span></div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
